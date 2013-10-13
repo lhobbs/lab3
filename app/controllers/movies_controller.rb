@@ -31,10 +31,10 @@ class MoviesController < ApplicationController
     end
 
     Movie.find(:all, :order => @sorting ? @sorting : :id).each do |m|
-	if @rating.keys.include? m[:rating]
-`	    (@movies || = [ ]) << m
-	end
-    end
+            if @ratings.keys.include? m[:rating]
+                (@movies ||= [ ]) << m
+            end
+        end
 
     session[:sort] =  @sorting
     session[:ratings] = @ratings
